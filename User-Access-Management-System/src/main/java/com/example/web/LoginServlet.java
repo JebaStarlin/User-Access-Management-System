@@ -2,7 +2,9 @@ package com.example.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.example.dao.RequestDAO;
+import com.example.dao.SoftwareDao;
 import com.example.dao.UserDAO;
+import com.example.model.Request;
+import com.example.model.Software;
 import com.example.model.User;
 
 /**
@@ -39,7 +45,19 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
 			session.setAttribute("role", user.getRole());
-			response.sendRedirect("SoftwareServlet");
+		
+			if(user.getRole().equals("Employee")) {
+				SoftwareDao softwareDao = new SoftwareDao();
+				List<Software> softwares = softwareDao.getSoftwares();
+				request.setAttribute("softwares", softwares);
+				RequestDispatcher rd = request.getRequestDispatcher("requestAccess.jsp");
+				rd.forward(request, response);
+			}else if(user.getRole().equals("Manager")) {
+				response.sendRedirect("RequestServlet");
+			}else {
+				RequestDispatcher rd = request.getRequestDispatcher("createSoftware.jsp");
+				rd.forward(request, response);
+			}
 		}
 		else {
 			PrintWriter out =response.getWriter();

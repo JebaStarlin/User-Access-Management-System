@@ -10,6 +10,7 @@
 <body>
 	<%
 		if(session.getAttribute("user")==null){
+			System.out.println("rejected");
 			response.sendRedirect("login.jsp");
 		}
 	%>
@@ -58,7 +59,7 @@
     <%
         } 
 	%>
-	<br>b
+	<br>
 	<a href="Logout">Logout</a>
 </body>
 </html>

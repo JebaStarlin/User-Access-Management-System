@@ -18,7 +18,7 @@
 	
 	<form action="SoftwareServlet" method="post">
 		Enter Software name : <input type="text" name="name"><br>
-		Enter Software Description : <input type="text" name="description"><br>
+		Enter Software Description : <textarea rows="" cols="" name="description"></textarea><br>
 		Enter Access Level : <select name="access">
 								<option value="Read">Read</option>
 								<option value="Write">Write</option>

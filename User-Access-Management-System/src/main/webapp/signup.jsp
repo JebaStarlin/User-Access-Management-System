@@ -10,11 +10,7 @@
 	<form action="SignUp" method="post">
 		Enter Username :<input type="text" name="username"><br>
 		Enter Password :<input type="password" name="password"><br>
-		Enter Role : <select name="role">
-						<option value="Employee">Employee</option>
-						<option value="Manager">Manager</option>
-						<option value="Admin">Admin</option>
-					 </select><br>
+		<input type="hidden" name="role" value="Employee"><br>
 		<input type="submit" value="SignUp">
 	</form>	
 </body>

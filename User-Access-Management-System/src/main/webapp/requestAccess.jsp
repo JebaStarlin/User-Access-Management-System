@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="com.example.model.User"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="com.example.model.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +16,13 @@
 			response.sendRedirect("showSoftwares.jsp");
 		}
 	%>
+	
 	<form action="RequestServlet" method="post">
-		Enter Software Id: <input type="number" name= "softwareId"><br>
+		Software Name : <select name="softwareName">
+							<c:forEach items="${softwares}" var="s">
+								<option value="${s.getName()}">${s.getName()}</option>
+							</c:forEach>
+						</select><br>
 		Enter Reason : <input type="text" name ="reason"><br>
 		<input type="submit">
 	</form>
