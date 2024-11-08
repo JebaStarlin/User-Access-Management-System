@@ -2,7 +2,7 @@
 
 Requestries:
   - PostgresSQL
-  - Apache Tomcat
+  - Apache Tomcat 9.0
   - java
 
 Creating database and tables :
@@ -41,6 +41,10 @@ Creating database and tables :
       INSERT INTO users (username, password, role) 
       VALUES ('kartik', '0000', 'Manager');
 
+Step to run the appication:
+-Download the application as zip file and exract it.
+-Open eclipse and import the project file(User-Access-Management-System) by navigating inside the extracted file.
+-To run the project, rightclick the project select run as -> run on server. Select the installed tomcat server and click finish.
 
 
       
