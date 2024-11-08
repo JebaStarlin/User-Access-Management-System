@@ -33,5 +33,14 @@ Creating database and tables :
           status TEXT CHECK (status IN ('Pending', 'Approved', 'Rejected')) NOT NULL
       );
 
+    Step 3(create Users):
+      INSERT INTO users (username, password, role) 
+      VALUES ('john', '0000', 'Employee');
+      INSERT INTO users (username, password, role) 
+      VALUES ('kelen', '0000', 'Admin');
+      INSERT INTO users (username, password, role) 
+      VALUES ('kartik', '0000', 'Manager');
+
+
 
       
